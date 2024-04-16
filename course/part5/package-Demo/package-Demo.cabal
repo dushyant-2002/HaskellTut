@@ -1,0 +1,33 @@
+cabal-version:   3.0
+name:            package-Demo
+version:         0.1.0.0
+license:         BSD-2-Clause
+license-file:    LICENSE
+author:          Dushyant
+category:        System
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  MyLib
+    build-depends:    base,
+                      random >= 1.2 ,
+                      directory >= 1.3.6    
+
+
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite package-Demo-test
+    import:           warnings
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1,
+        package-Demo
